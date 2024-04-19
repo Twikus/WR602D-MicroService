@@ -16,16 +16,12 @@ class GotenbergController extends AbstractController
         $this->apiService = $apiService;
     }
 
-    #[Route('/htmltopdf', name: 'app_htmltopdf', methods: ['POST'])]
-    public function index(Request $request): Response
+    #[Route('/url-to-pdf', name: 'app_url_to_pdf', methods: ['POST'])]
+    public function urlToPdf(Request $request): Response
     {
-        $html = $request->getContent();
+        $url = $request->request->get('url');
+        $result = $this->apiService->urlToPdf($url);
 
-        $pdf = $this->apiService->sendHtmlToGotenberg($html);
-
-        $response = new Response($pdf);
-        $response->headers->set('Content-Type', 'application/pdf');
-
-        return $response;
+        return new Response($result);
     }
 }
