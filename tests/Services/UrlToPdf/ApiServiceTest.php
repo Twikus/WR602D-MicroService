@@ -2,24 +2,24 @@
 
 namespace App\Tests\Service\HtmlToPdf;
 
-use App\Service\HtmlToPdf\ApiService;
+use App\Service\UrlToPdf\ApiService;
 use PHPUnit\Framework\TestCase;
 
 class ApiServiceTest extends TestCase
 {
     public function testSendHtmlToGotenberg()
     {
-        $html = "<html><body>Hello World</body></html>";
-        $expectedPdfContent = "PDF_CONTENT";
+        $url = "http://google.com";
+        $expectedPdfContent = "PDF content";
 
         // Créer un mock de ApiService
         $apiService = $this->createMock(ApiService::class);
 
         // Configurer le mock pour retourner le contenu PDF attendu
-        $apiService->method('sendHtmlToGotenberg')
+        $apiService->method('urlToPdf')
             ->willReturn($expectedPdfContent);
 
-        $pdfContent = $apiService->sendHtmlToGotenberg($html);
+        $pdfContent = $apiService->urlToPdf($url);
 
         $this->assertEquals($expectedPdfContent, $pdfContent, "The returned PDF content should match the expected content.");
     }
