@@ -10,6 +10,6 @@ services:
   
   app:
     container_name: app-microservice
-    image: db8412534291402e47f6cf5ff1854927462d2550f8f7e99df0f7af3a129e749d
+    image: 36dec4d66e35b3443398747bc864d66be2632b6601fb3aa2a28314d9360451e4 
     ports:
       - '8000:80'
