@@ -11,7 +11,7 @@ services:
   
   app:
     container_name: app-microservice
-    image: 36dec4d66e35b3443398747bc864d66be2632b6601fb3aa2a28314d9360451e4 
+    image: sha256:c7cefb6d6adc4351a61039bd8b12050d40b7fbfc65867c8c4098f863cb181439
     ports:
       - '8000:80'
     volumes:
